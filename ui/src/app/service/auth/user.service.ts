@@ -24,4 +24,18 @@ export class UserService {
   getTotalCount(): Observable<any> {
     return this.http.get<any>(`/api/total-count`);
   }
+
+  getAllApplications(): Observable<any> {
+    return this.http.get<any>(`/api/getAllApplications`);
+  }
+
+  filterData(reqBody: any): Observable<any> {
+    let paramArr = [];
+    if(reqBody.search){
+      paramArr.push(`search=${reqBody.search}`)
+    }
+    let paramString = paramArr.join('&')
+    // reqBody = 
+    return this.http.get<any>(`/api/getAllApplications?${paramString}`);
+  }
 }

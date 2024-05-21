@@ -57,7 +57,13 @@
                 <td>
                     <img class="notify-img" src="../../assets/msg.png">
                 </td>
-                <td>{{row.application_status}}</td>
+                <td>
+                  <div class="no-left-padding count-content">
+                    <h6>{{row.application_status}}</h6>
+                    <span>Applications Number: test</span>
+                  </div>
+                </td>
+                <!-- <td>{{row.application_status}}</td> -->
                 <td>{{row.created_at}}</td>
               </tr>
             </tbody>

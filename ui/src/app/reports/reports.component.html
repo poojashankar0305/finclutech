@@ -1,0 +1,50 @@
+<app-sidebar></app-sidebar>
+<div id="home-content" class="side-margin">
+    <span>NEW APPLICATIONS LIST</span>
+    <div class="filter-panel">
+        <input class="input-box" [(ngModel)]="searchText" type="text" placeholder="Search here">
+        <input class="input-box" type="date" >
+        <input class="input-box" type="date" >
+        <button class="btn btn-primary btn-search" (click)="searchData()">Search</button>
+    </div>
+    <div class="download-panel ">
+        <button class="btn btn-primary btn-search">Add</button>
+        <button class="btn btn-primary " (click)="generateCSV()">CSV</button>
+    </div>
+    <div class="download-panel">
+    </div>
+    <div class="main-content table-responsive-lg">
+        <table class="table notification-table table-bordered  table-striped ">
+            <thead>
+              <tr class="small-font">
+                <th class="msg-col" scope="col">#</th>
+                <th data-defaultsort="desc">Application Id</th>
+                <th scope="col">Sales Agent Id</th>
+                <th scope="col">Account Type</th>
+                <th scope="col">Created On</th>
+                <th scope="col">Application Status</th>
+                <th scope="col">Business Category</th>
+                <th scope="col">Last Action On</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="small-font" *ngFor="let row of notificationList; let i = index;">
+                <td>
+                    {{i+1}}
+                </td>
+                <td>{{row.business_application_id}}</td>
+                <td>
+                    {{row.sales_agent_first_name}} {{row.sales_agent_last_name}}
+                    <br>
+                    {{row.sales_agent_email}}
+                </td>
+                <td>{{row.account_type}}</td>
+                <td>{{row.created_at}}</td>
+                <td>{{row.application_status}}</td>
+                <td>{{row.business_category}}</td>
+                <td>{{row.updated_at}}</td>
+              </tr>
+            </tbody>
+          </table>
+    </div>
+</div>

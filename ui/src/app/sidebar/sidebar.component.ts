@@ -8,6 +8,7 @@ import { Component, HostListener } from '@angular/core';
 export class SidebarComponent {
   public mobile= false;
   public innerWidth: any;
+  url: string = '';
   @HostListener('window:resize', ['$event'])
   onResize(event: any) {
     this.innerWidth = window.innerWidth;
@@ -15,6 +16,8 @@ export class SidebarComponent {
   }
   ngOnInit() {
     console.log(window.screen);
+    this.url = window.location.pathname;
+    
     
   if (window.screen.width < 450) { // 768px portrait
     this.mobile = true;

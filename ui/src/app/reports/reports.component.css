@@ -1,0 +1,58 @@
+.table-striped tbody tr:nth-of-type(odd){
+    background-color: #f8f4ff;
+}
+.download-panel{
+    /* padding: 10px; */
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+    /* text-align: right; */
+}
+.download-panel button{
+    height: 40px;
+    width: 100px;
+    border-color: #373b54;
+    background-color: #373b54;
+    border-radius: 0%;
+    margin-right: 10px;
+}
+
+
+.filter-panel{
+    /* padding: 10px; */
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: center;
+}
+.btn-search{
+    height: 45px;
+    width: 100px;
+    background-color: #373b54;
+    border-color: #373b54;
+    border-radius: 0%;
+}
+
+.input-box{
+    margin-right: 20px !important;
+    width:20%;
+    border:2px solid #aaa;
+    border-radius:4px;
+    margin:8px 0;
+    outline:none;
+    padding:8px;
+    box-sizing:border-box;
+    transition:.3s;
+  }
+  
+  .input-box:focus{
+    border-color:dodgerBlue;
+    box-shadow:0 0 8px 0 dodgerBlue;
+  }
+
+  .main-content{
+    padding-right: 10px;
+    margin-top: 20px;
+  }

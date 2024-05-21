@@ -14,6 +14,37 @@ router.get('/getNotification', async function(req, res, next) {
     });
 });
 
+/* GET home page. */
+router.get('/getAllApplications', async function(req, res, next) {
+  let connection = await createConnection();
+    let filterCond = '';
+    let columns = [
+      'sales_agent_first_name',
+      'sales_agent_last_name',
+      'sales_agent_email',
+      'account_type',
+      'application_status',
+      'business_category'
+    ]
+    let { search, startDate, endDate } = req.query;
+    console.log("here 1"+ JSON.stringify(req.query));
+    if(search){
+      let searchCond = [];
+      columns.forEach(element => {
+        searchCond.push(`LOWER(${element}) LIKE LOWER(%${search}%)`)
+      });
+      filterCond = "WHERE "+searchCond.join(" OR ")
+    }
+    let selectQry = `SELECT * from applications ${filterCond} order by business_application_id desc`;
+
+    connection.query(selectQry, function (err, result, fields) {
+      if (err) {
+        res.status(500).json({message: 'Something Went wrong. Please contact administrator'});
+      }
+      res.status(200).json({ title: 'Express' , data: result});
+    });
+});
+
 router.get('/dashboard-count', async function(req, res, next) {
   let connection = await createConnection();
     let countQuery = `SELECT application_status, count(*) as count

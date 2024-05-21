@@ -12,11 +12,15 @@
   #sidebar.active{
     left:0px;
   }
+
+  #sidebar  ul{
+    padding-left: 0px !important;
+  }
   
   #sidebar  ul li{
     color:rgba(230,230,230,0.9);
     list-style:none;
-    padding:10px 1px;
+    padding:15px 1px;
     /* border-bottom:1px solid rgba(100,100,100,0.9); */
     list-style-type: none;
     border: none ;
@@ -25,12 +29,15 @@
   #sidebar  ul li a{ 
     text-decoration: none !important;
     color: white;
+    cursor:pointer;
+    margin-left: 30px;
   }
 
   .nav-header{
     font-size: 16px;
     padding-left: 10px;
     font-weight: normal;
+    cursor:pointer;
   }
   
   #sidebar .toggle-btn{
@@ -94,4 +101,9 @@
     /* .logo-img{
       width:50px;
     } */
+  }
+
+  .nav-active{
+    background-color: #ec5d26;
+    transition:all 100ms linear;
   }
