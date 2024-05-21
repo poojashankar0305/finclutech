@@ -53,11 +53,11 @@ label{
 .side-margin{
   transition:all 505ms linear;
   margin-left: 230px !important;
-  padding-top: 50px !important;
+  padding-top: 70px !important;
 }
 
 #home-content{
   margin-left: 30px;
   transition:all 505ms linear;
-  padding-top: 50px !important;
+  padding-top: 70px !important;
 }

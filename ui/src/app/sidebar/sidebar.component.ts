@@ -14,8 +14,19 @@ export class SidebarComponent {
     console.log(this.innerWidth);
   }
   ngOnInit() {
-  if (window.screen.width === 100) { // 768px portrait
+    console.log(window.screen);
+    
+  if (window.screen.width < 450) { // 768px portrait
     this.mobile = true;
+    let sidebar = document.getElementById("sidebar") as HTMLInputElement;
+    let homeContent = document.getElementById('home-content') as HTMLInputElement;
+    sidebar.classList.remove('active');
+    if(sidebar.classList.contains('active')){
+      homeContent.classList.add('side-margin')
+    }else{
+      homeContent.classList.remove('side-margin')
+    }
+  
   }
 }
   toggleSidebar() {

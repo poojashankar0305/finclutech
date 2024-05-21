@@ -2,3 +2,73 @@
   display: flex;
 }
 
+
+.header-dashboard{
+  padding-top: 10px;
+  padding-right: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.card-body{
+
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.card{
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  /* border: 1px solid grey; */
+}
+@media only screen and (max-width: 840px) {
+
+  .header-dashboard{
+    /* padding: 10px; */
+    display: flex;
+    flex-direction: column;
+    justify-content: start
+  }
+  .card{
+    margin-top: 10px;
+    width: 100% !important;
+    /* margin: 10px; */
+  }
+}
+
+.header-card{
+  /* width: fit-content; */
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.card-text{
+  font-size: 12px;
+  color: gray;
+}
+
+.task-btn {
+  background-color: #757987;
+  border: #757987;
+}
+
+.right-img img{
+  width: 100px;
+}
+
+.card1{
+  width: 32%;
+}
+.card2{
+  width: 65%;
+}
+
+.main-content{
+  padding-top: 50px;
+  padding-right: 10px;
+}
+
+.notify-img{
+  width: 25px;
+}

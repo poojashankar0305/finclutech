@@ -4,7 +4,7 @@
     position:fixed;
     width:200px;
     height:100%;
-    background: grey;
+    background: #373b54;
     left:-200px;/* corrsponding to width */
     transition:all 500ms linear;
     cursor:pointer;
@@ -16,10 +16,21 @@
   #sidebar  ul li{
     color:rgba(230,230,230,0.9);
     list-style:none;
-    padding:20px 1px;
-    border-bottom:1px solid rgba(100,100,100,0.9);
+    padding:10px 1px;
+    /* border-bottom:1px solid rgba(100,100,100,0.9); */
     list-style-type: none;
-    
+    border: none ;
+  }
+
+  #sidebar  ul li a{ 
+    text-decoration: none !important;
+    color: white;
+  }
+
+  .nav-header{
+    font-size: 16px;
+    padding-left: 10px;
+    font-weight: normal;
   }
   
   #sidebar .toggle-btn{
@@ -29,9 +40,9 @@
   }
   
   #sidebar .toggle-btn span{
-    display:block;
-    width:30px;
-    height:5px;
+    display: block;
+    width: 25px;
+    height: 3px;
     background: grey;
     margin: 5px 0px;
   }
@@ -53,6 +64,8 @@
   
   .iconshowlogo li {
     position: relative;
+    list-style-type: none;
+    text-decoration: none;
     padding-left: 20px;
     margin-bottom: 10px
   }
@@ -69,6 +82,6 @@
   }
   
   .iconshowlogo fa{
-    size: 10cm
+    /* size: 10cm */
   }
   
