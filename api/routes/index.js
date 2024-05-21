@@ -24,24 +24,28 @@ router.get('/getAllApplications', async function(req, res, next) {
       'sales_agent_email',
       'account_type',
       'application_status',
-      'business_category'
+      'business_category',
+      'business_application_id'
     ]
-    let { search, startDate, endDate } = req.query;
-    console.log("here 1"+ JSON.stringify(req.query));
+    // let { search, startDate, endDate } = req.query;
+    let search = req.query.search;
+    console.log(search);
     if(search){
       let searchCond = [];
+      search = search.toLowerCase()
       columns.forEach(element => {
-        searchCond.push(`LOWER(${element}) LIKE LOWER(%${search}%)`)
+        searchCond.push(`LOWER(${element}) LIKE '%${search}%'`)
       });
-      filterCond = "WHERE "+searchCond.join(" OR ")
+      filterCond = "WHERE ("+searchCond.join(" OR ")+")"
     }
     let selectQry = `SELECT * from applications ${filterCond} order by business_application_id desc`;
-
+    console.log(selectQry);
     connection.query(selectQry, function (err, result, fields) {
       if (err) {
         res.status(500).json({message: 'Something Went wrong. Please contact administrator'});
+      }else{
+        res.status(200).json({ title: 'Express' , data: result});
       }
-      res.status(200).json({ title: 'Express' , data: result});
     });
 });
 
