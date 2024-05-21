@@ -17,44 +17,48 @@
           </div>
           <div class="card header-card card2">
             <div class="card-body">
-                <div>
-                    <h5 class="card-title">Welcome on board!</h5>
-                    <p class="card-text">Please administer the system with ease as assigned to you.</p>
-                    <button type="button" class="btn btn-primary task-btn">Visit Task List</button>
+                <div class="count-row">
+                    <img class="count-img" src="../../assets/total.png">
+                    <div class="count-content">
+                      <h5>{{dashboardCount.totalCount}}</h5>
+                      <span>Total Applications</span>
+                    </div>
                 </div>
-                <div class="right-img">
-                    <img src="../../assets/img1.png">
+                <div class="count-row">
+                  <img class="count-img" src="../../assets/like.png">
+                  <div class="count-content">
+                    <h5>{{dashboardCount.asApproved}}</h5>
+                    <span>A S Approved</span>
+                  </div>
+              </div>
+              <div class="count-row">
+                <img class="count-img" src="../../assets/red.webp">
+                <div class="count-content">
+                  <h5>{{dashboardCount.amlApproved}}</h5>
+                  <span>Applications Approved</span>
                 </div>
+            </div>
+                
             </div>
             
           </div>
     </div>
     <div class="main-content table-responsive-lg">
-        <table class="table  table-bordered ">
+        <table class="table notification-table table-bordered ">
             <thead>
               <tr>
-                <th scope="col"></th>
+                <th class="msg-col" scope="col"></th>
                 <th scope="col">Notification</th>
                 <th scope="col">Date</th>
               </tr>
             </thead>
             <tbody>
-              <tr>
+              <tr *ngFor="let row of notificationList">
                 <td>
                     <img class="notify-img" src="../../assets/msg.png">
                 </td>
-                <td>Otto</td>
-                <td>T</td>
-              </tr>
-              <tr>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>f</td>
-              </tr>
-              <tr>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>s</td>
+                <td>{{row.application_status}}</td>
+                <td>{{row.created_at}}</td>
               </tr>
             </tbody>
           </table>

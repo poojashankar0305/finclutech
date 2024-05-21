@@ -84,4 +84,14 @@
   .iconshowlogo fa{
     /* size: 10cm */
   }
-  
+  .logo-img{
+    width:200px;
+    /* height: 100px; */
+    /* background-image: url(../../assets/logo-bg.jpeg); */
+  }
+
+  @media only screen and (max-width: 840px) {
+    /* .logo-img{
+      width:50px;
+    } */
+  }

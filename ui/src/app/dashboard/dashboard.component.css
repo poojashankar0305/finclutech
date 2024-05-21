@@ -11,6 +11,8 @@
   justify-content: space-between;
 }
 
+
+
 .card-body{
 
   display: flex;
@@ -62,6 +64,11 @@
 }
 .card2{
   width: 65%;
+  
+}
+
+.card2 .card-body{
+    justify-content: space-around;
 }
 
 .main-content{
@@ -71,4 +78,37 @@
 
 .notify-img{
   width: 25px;
+}
+
+.notification-table{
+  font-size: 14px;
+}
+
+.msg-col{
+  width: 5%;
+}
+
+.count-row{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.count-img{
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50%;
+  /* border: 1px solid #573392; */
+}
+
+.count-content{
+  padding-left: 20px;
+  h5{
+    margin-bottom: 0px !important;
+  }
+  span{
+    font-size: 12px;
+    color: grey;
+  }
 }

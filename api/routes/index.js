@@ -3,16 +3,42 @@ const { createConnection } = require("../config/dbConnect");
 var router = express.Router();
 
 /* GET home page. */
-router.get('/', async function(req, res, next) {
+router.get('/getNotification', async function(req, res, next) {
   let connection = await createConnection();
-  // A simple SELECT query
-  // connection.connect(function(err) {
-  //   if (err) throw err;
-    connection.query("SELECT * from applications", function (err, result, fields) {
-      if (err) throw err;
-      console.log(result);
+    
+    connection.query("SELECT * from applications LIMIT 10 OFFSET 0", function (err, result, fields) {
+      if (err) {
+        res.status(500).json({message: 'Something Went wrong. Please contact administrator'});
+      }
+      res.status(200).json({ title: 'Express' , data: result});
     });
-  res.render('index', { title: 'Express' });
+});
+
+router.get('/dashboard-count', async function(req, res, next) {
+  let connection = await createConnection();
+    let countQuery = `SELECT application_status, count(*) as count
+    FROM applications
+    where application_status in ('Authorized Signatory Approved', 'AML Approved') 
+    GROUP BY application_status`
+    connection.query(countQuery, function (err, result, fields) {
+      if (err) {
+        res.status(500).json({message: 'Something Went wrong. Please contact administrator'});
+      }
+      res.status(200).json({ title: 'Express' , data: result});
+    });
+});
+
+
+router.get('/total-count', async function(req, res, next) {
+  let connection = await createConnection();
+    let countQuery = `SELECT count(*) as count
+    FROM applications`
+    connection.query(countQuery, function (err, result, fields) {
+      if (err) {
+        res.status(500).json({message: 'Something Went wrong. Please contact administrator'});
+      }
+      res.status(200).json({ title: 'Express' , totalCount: result[0].count});
+    });
 });
 
 router.post('/authenticate', async function(req, res, next) {

@@ -13,4 +13,15 @@ export class UserService {
   login(userData: any): Observable<any> {
     return this.http.post<any>(`/api/authenticate`, userData);
   }
+
+  getNotifications(): Observable<any> {
+    return this.http.get<any>(`/api/getNotification`);
+  }
+
+  getCount(): Observable<any> {
+    return this.http.get<any>(`/api/dashboard-count`);
+  }
+  getTotalCount(): Observable<any> {
+    return this.http.get<any>(`/api/total-count`);
+  }
 }
