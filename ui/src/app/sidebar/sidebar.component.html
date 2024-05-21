@@ -1,0 +1,20 @@
+<div id="sidebar" class="active">
+    <div class="toggle-btn" (click)="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul>
+        <button *ngIf="mobile" (click)="toggleSidebar()"></button>
+        <div class="iconshowlogo">
+            <ul>
+                <br>
+                <li><i class="fa fa-user" *ngIf="mobile" aria-hidden="true"> List icons can</i></li>
+            </ul>
+        </div>
+        <li>Home</li>
+        <li>Contact</li>
+        <li>About Us</li>
+
+    </ul>
+</div>

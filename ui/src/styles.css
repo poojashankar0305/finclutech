@@ -1,0 +1,63 @@
+/* Add application styles & imports to this file! */
+@import url('https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css');
+/* @import url('../node_modules/simple-keyboard/build/css/index.css'); */
+body{
+  
+  background-color: white;
+}
+
+.small-font{
+    font-size: 12px;
+}
+.bold-font{
+    font-weight: bold;
+}
+
+.center {
+    text-align: center;
+}
+.auth-card{
+    border-radius: 10px;
+  background: #3ad3e8; 
+}
+label{
+  color: #fff;
+  font-weight: 700;
+}
+.user-image{
+  height: 70px;
+}
+.auth-avatar{
+  text-align: center;
+  margin-top: -50px;
+}
+.auth{
+  margin-top: 35px;
+  border: none;
+  border-radius: 6px;
+}
+.btn-my{
+  background-color: #e95a2c;
+  border-color: #e95a2c;
+  color: #fff;
+}
+.simple-keyboard {
+  max-width: 850px;
+}
+
+.component-div{
+  display: flex;
+  flex-direction: row;
+}
+
+.side-margin{
+  transition:all 505ms linear;
+  margin-left: 230px !important;
+  padding-top: 50px !important;
+}
+
+#home-content{
+  margin-left: 30px;
+  transition:all 505ms linear;
+  padding-top: 50px !important;
+}
