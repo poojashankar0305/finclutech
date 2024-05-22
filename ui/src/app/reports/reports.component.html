@@ -1,23 +1,24 @@
 <app-sidebar></app-sidebar>
 <div id="home-content" class="side-margin">
-    <span>NEW APPLICATIONS LIST</span>
-    <div class="filter-panel">
+    <h5 class="hide-on-add">NEW APPLICATIONS LIST</h5>
+    <div class="filter-panel hide-on-add">
         <input class="input-box" [(ngModel)]="searchText" type="text" placeholder="Search here">
-        <input class="input-box" type="date" >
-        <input class="input-box" type="date" >
+        <input class="input-box" type="date" [(ngModel)]="startDate">
+        <input class="input-box" type="date" [(ngModel)]="endDate">
         <button class="btn btn-primary btn-search" (click)="searchData()">Search</button>
     </div>
-    <div class="download-panel ">
-        <button class="btn btn-primary btn-search">Add</button>
+    <div class="download-panel hide-on-add">
+        <button class="btn btn-primary btn-search" (click)="openAdd()">Add</button>
         <button class="btn btn-primary " (click)="generateCSV()">CSV</button>
     </div>
-    <div class="download-panel">
+    <div class="download-panel hide-on-add">
     </div>
-    <div class="main-content table-responsive-lg">
+    <div class="main-content table-responsive-lg hide-on-add">
         <table class="table notification-table table-bordered  table-striped ">
             <thead>
               <tr class="small-font">
                 <th class="msg-col" scope="col">#</th>
+                <th>Actions</th>
                 <th data-defaultsort="desc">Application Id</th>
                 <th scope="col">Sales Agent Id</th>
                 <th scope="col">Account Type</th>
@@ -31,6 +32,12 @@
               <tr class="small-font" *ngFor="let row of notificationList; let i = index;">
                 <td>
                     {{i+1}}
+                </td>
+                <td>
+                    <div class="action-panel">
+                        <i style="color: #0b66c2;" (click)="editApp(row)" class="fa fa-edit" aria-hidden="true"></i>
+                        <i style="color: red;" class="fa fa-trash" (click)="deleteApp(row)" aria-hidden="true"></i>
+                    </div>
                 </td>
                 <td>{{row.business_application_id}}</td>
                 <td>
@@ -46,5 +53,77 @@
               </tr>
             </tbody>
           </table>
+    </div>
+    
+    <div id="create" class="hide">
+      <h5>CREATE NEW APPLICATION</h5>
+      <div class="form">
+          <div class="row">
+              <div class="form-group col-xs-12 col-md-12 col-sm-12">
+                  <label for="agentEmail">Agent Email</label>
+                  <input [(ngModel)]="formData.agentEmail" type="text" class="form-control" id="agentEmail">
+              </div>
+          </div>
+          <div class="row">
+            <div class="form-group col col-12 col-sm-6 col-md-6">
+                <label for="agentFName">Agent First Name</label>
+                <input [(ngModel)]="formData.agentFName"  type="text" class="form-control" id="agentFName">
+            </div>
+            <div class="form-group col col-12 col-sm-6 col-md-6">
+                <label for="agentLName">Agent Last Name</label>
+                <input [(ngModel)]="formData.agentLName"  type="text" class="form-control" id="agentLName">
+            </div>
+        </div>
+          <div class="row">
+              <div class="form-group col col-12 col-sm-6 col-md-6">
+                  <label for="busCat">Business Category</label>
+                  <select [(ngModel)]="formData.busCat"  class="form-control" id="busCat">
+                      <option value="">Select</option>
+                      <option value="Simple">Simple</option>
+                      <option value="Complex">Complex</option>
+                      <option value="NA">NA</option>
+                  </select>
+              </div>
+
+              <div class="form-group col col-12 col-sm-6 col-md-6">
+                  <label for="appStatus">Application Status</label>
+                  <select [(ngModel)]="formData.appStatus"  class="form-control" id="appStatus">
+                      <option value="">Select</option>
+                      <option value="Incomplete Application">Incomplete Application</option>
+                      <option value="Application Submitted">Application Submitted</option>
+                      <option value="AML In-Progress">AML In-Progress</option>
+                      <option value="Authorized Signatory Approved">Authorized Signatory Approved</option>
+                      <option value="AML Rejected">AML Rejected</option>
+                      <option value="Pending Approval by Risk & Management">Pending Approval by Risk & Management</option>
+                      <option value="R&C Rejected">R&C Rejected</option>
+                      <option value="Business QA Reject">Business QA Reject</option>
+                      <option value="AML Approved">AML Approved</option>
+                      <option value="Business QA Amendment Request">Business QA Amendment Request</option>
+                  </select>
+              </div>
+          </div>
+         
+          <div class="row">
+            <div class="form-group col col-12 col-sm-6 col-md-6">
+                <label for="accType">Account Type</label>
+                <select [(ngModel)]="formData.accType"  class="form-control" id="busCat">
+                    <option value="">Select</option>
+                    <option value="merchant">merchant</option>
+                    <option value="super_merchant">super_merchant</option>
+                    <option value="agent">agent</option>
+                    <option value="--">--</option>
+                </select>
+            </div>
+            </div>
+          <br>
+          <div class="cancel-panel">
+            <button class="btn btn-danger" (click)="closeAdd()">Cancel</button>
+            <button class="btn btn-primary " *ngIf="!isUpdateOpen" (click)="addApplication()">Create</button>
+            <button class="btn btn-primary " *ngIf="isUpdateOpen" (click)="editApplication()">Update</button>
+        </div>
+          
+        
+      </div>
+      
     </div>
 </div>

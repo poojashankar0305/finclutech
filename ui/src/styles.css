@@ -67,3 +67,7 @@ label{
   }
   padding-left: 0px !important;
 }
+
+.hide{
+  display: none !important;
+}

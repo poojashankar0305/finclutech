@@ -34,8 +34,26 @@ export class UserService {
     if(reqBody.search){
       paramArr.push(`search=${reqBody.search}`)
     }
+    if(reqBody.startDate){
+      paramArr.push(`startDate=${reqBody.startDate}`)
+    }
+    if(reqBody.endDate){
+      paramArr.push(`endDate=${reqBody.endDate}`)
+    }
     let paramString = paramArr.join('&')
     // reqBody = 
     return this.http.get<any>(`/api/getAllApplications?${paramString}`);
+  }
+
+  // editApplication
+  editApplication(data: any): Observable<any> {
+    return this.http.post<any>(`/api/editApplication`, data);
+  }
+  
+  addApplication(data: any): Observable<any> {
+    return this.http.post<any>(`/api/addApplication`, data);
+  }
+  deleteApplication(id: any): Observable<any> {
+    return this.http.post<any>(`/api/deleteApplication?id=${id}`, {});
   }
 }
