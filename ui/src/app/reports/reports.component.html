@@ -6,7 +6,7 @@
         <input class="input-box" type="date" [(ngModel)]="startDate">
         <input class="input-box" type="date" [(ngModel)]="endDate">
         <button class="btn btn-primary btn-search"  style="margin-right: 20px;"(click)="searchData()">Search</button>
-        <button class="btn btn-primary btn-search"  (click)="resetSearch()">Reset</button>
+        <button class="btn btn-primary btn-search" (click)="resetSearch()">Reset</button>
     </div>
     <div class="download-panel hide-on-add">
         <button class="btn btn-primary btn-search" (click)="openAdd()">Add</button>
@@ -15,7 +15,7 @@
     <div class="download-panel hide-on-add">
     </div>
     <div class="main-content table-responsive-lg hide-on-add">
-        <table class="table notification-table table-bordered  table-striped ">
+        <table id="mainTable" class="table notification-table table-bordered  table-striped ">
             <thead>
               <tr class="small-font">
                 <th class="msg-col" scope="col">#</th>

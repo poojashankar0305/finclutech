@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 import moment from 'moment';
 import { UserService } from "../service/auth/user.service";
+
 @Component({
   selector: 'app-reports',
   templateUrl: './reports.component.html',
@@ -18,6 +19,7 @@ export class ReportsComponent implements OnInit {
     this.searchText = '';
   }
   ngOnInit(): void {
+    
     this.formData = {
       agentEmail: '',
       agentFName: '',
@@ -108,7 +110,6 @@ export class ReportsComponent implements OnInit {
     link.setAttribute('href', csvUrl);
     link.click()
 
-    // $('#lnkDwnldLnk')[0].click();
     document.body.removeChild(link);
   }
 
@@ -116,7 +117,8 @@ export class ReportsComponent implements OnInit {
     this.searchText = '';
     this.startDate = '';
     this.endDate = '';
-    this.searchData();
+    // this.searchData();
+    this.getNotifications()
   }
 
   searchData(){

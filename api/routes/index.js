@@ -18,6 +18,7 @@ router.get('/getNotification', async function(req, res, next) {
 /* GET home page. */
 router.get('/getAllApplications', async function(req, res, next) {
   let connection = await createConnection();
+  // SELECT * from applications LIMIT 10 OFFSET 0 --> we can use pagination based on the pagenumber and page size we are getting frm UI already implemenrted in my projectes in backend of my old projects
     let filterCond = '';
     let columns = [
       'sales_agent_first_name',
