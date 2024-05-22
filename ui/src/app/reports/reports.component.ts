@@ -112,20 +112,40 @@ export class ReportsComponent implements OnInit {
     document.body.removeChild(link);
   }
 
+  resetSearch(){
+    this.searchText = '';
+    this.startDate = '';
+    this.endDate = '';
+    this.searchData();
+  }
+
   searchData(){
+    let isSearch = false;
     console.log(this.searchText);
     
     let reqBody: any = {};
     if(this.searchText != ''){
       reqBody.search = this.searchText;
+      isSearch = true;
     }
     if(this.startDate && this.endDate){
-      let startDate = moment(this.startDate).format('DD-MM-YYYY');
-      let endDate = moment(this.endDate).format('DD-MM-YYYY');
-      reqBody.startDate = startDate;
-      reqBody.endDate = endDate;
+      if(this.startDate > this.endDate){
+        isSearch = false;
+        this.toastr.error("", 'End Date cannot be greater than start date', {
+          titleClass: "left",
+          messageClass: "left"
+        });
+      }else{
+        let startDate: any = moment(this.startDate).format('DD-MM-YYYY');
+        let endDate: any = moment(this.endDate).format('DD-MM-YYYY');
+        isSearch = true;
+        reqBody.startDate = startDate;
+        reqBody.endDate = endDate;
+      }
     }
-    this.searchNotifications(reqBody)
+    if(isSearch){
+      this.searchNotifications(reqBody); 
+    }
   }
 
   searchNotifications(reqBody: any) {

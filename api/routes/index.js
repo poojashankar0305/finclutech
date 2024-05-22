@@ -49,7 +49,7 @@ router.get('/getAllApplications', async function(req, res, next) {
       }else{
         filterCond = filterCond + " AND  ";
       }
-      filterCond += ` updated_at >= '${startDate}' AND updated_at < '${endDate}'`
+      filterCond += ` updated_at >= '${startDate}' AND updated_at <= '${endDate}'`
     }
 
 
